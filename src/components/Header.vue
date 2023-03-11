@@ -16,7 +16,8 @@
             <a class="nav-link scrollto" href="#hero">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link scrollto" href="#about">About</a>
+            <router-link class="nav-link scrollto" to="/about">About</router-link>
+            <!-- <a class="nav-link scrollto" href="#about">About</a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link scrollto" href="#services">Services</a>
