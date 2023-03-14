@@ -1,4 +1,5 @@
 <template>
+  <Cover/>
   <section id="about" class="bg-dark">
     <div class="container" data-aos="fade-up">
       <header class="section-header">
@@ -122,3 +123,13 @@
     </div>
   </section>
 </template>
+
+
+<script>
+import Cover from "../components/Cover";
+export default {
+  components: {
+    Cover,
+  },
+};
+</script>
