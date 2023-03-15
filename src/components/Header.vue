@@ -13,13 +13,28 @@
       <nav id="navbar" class="nav bg-dark">
         <ul class="nav nav-pills bg-dark">
           <li class="nav-item">
-            <router-link class="nav-link scrollto" to="/">Home</router-link>
+            <router-link
+              class="nav-link scrollto"
+              active-class="active"
+              to="/"
+              >Home</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link scrollto" to="/about">About</router-link>
+            <router-link
+              class="nav-link scrollto"
+              active-class="active"
+              to="/about"
+              >About</router-link
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link scrollto" href="#services">Services</a>
+            <router-link
+              class="nav-link scrollto"
+              active-class="active"
+              to="/services"
+              >Services</router-link
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link scrollto" href="#portfolio">Portfolio</a>
@@ -31,7 +46,10 @@
             <a class="nav-link scrollto" href="#contact">Contact</a>
           </li>
         </ul>
-        <i @click="toggleNavbar()" class="bi bi-list mobile-nav-toggle text-light"></i>
+        <i
+          @click="toggleNavbar()"
+          class="bi bi-list mobile-nav-toggle text-light"
+        ></i>
       </nav>
       <!-- .navbar -->
     </div>
@@ -43,11 +61,10 @@ export default {
   name: "Header",
   methods: {
     toggleNavbar() {
-      document.querySelector('#navbar').classList.toggle("navbar-mobile");
-      document.querySelector('.mobile-nav-toggle').classList.toggle("bi-list");
-      document.querySelector('.mobile-nav-toggle').classList.toggle("bi-x");
-    }
-  }
+      document.querySelector("#navbar").classList.toggle("navbar-mobile");
+      document.querySelector(".mobile-nav-toggle").classList.toggle("bi-list");
+      document.querySelector(".mobile-nav-toggle").classList.toggle("bi-x");
+    },
+  },
 };
 </script>
-
