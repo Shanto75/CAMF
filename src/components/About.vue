@@ -71,6 +71,12 @@
 <script>
 export default {
   name: "About",
+  // mounted() {
+  //   console.log('mounted');
+  // },
+  // created () {
+  //   console.log('created');
+  // },
 };
 </script>
 

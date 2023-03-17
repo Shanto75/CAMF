@@ -67,7 +67,13 @@ export default {
   name: "Services",
   components: {
     Service,
-    Cover
+    Cover,
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  created() {
+    console.log("created");
   },
 };
 </script>

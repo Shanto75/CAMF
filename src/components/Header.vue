@@ -13,10 +13,7 @@
       <nav id="navbar" class="nav bg-dark">
         <ul class="nav nav-pills bg-dark">
           <li class="nav-item">
-            <router-link
-              class="nav-link scrollto"
-              active-class="active"
-              to="/"
+            <router-link class="nav-link scrollto" active-class="active" to="/"
               >Home</router-link
             >
           </li>
@@ -43,7 +40,12 @@
             <a class="nav-link scrollto" href="#team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link scrollto" href="#contact">Contact</a>
+            <router-link
+              class="nav-link scrollto"
+              active-class="active"
+              to="/contact"
+              >Contact</router-link
+            >
           </li>
         </ul>
         <i

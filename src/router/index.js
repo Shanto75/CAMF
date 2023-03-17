@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home'
 import About from '../views/About'
 import Services from '../views/Services'
+import Contact from '../views/Contact'
 
 const routes = [
     {
@@ -20,6 +21,11 @@ const routes = [
         path: '/services',
         name: 'services',
         component: Services,
+    },
+    {
+        path: '/contact',
+        name: 'contact',
+        component: Contact,
     }
 ]
 
@@ -28,4 +34,29 @@ const router = createRouter({
     routes,
 })
 
+router.beforeResolve((to, from, next) => {
+    // If this isn't an initial page load.
+    if (to.name) {
+        NProgress.configure({ showSpinner: false });
+        NProgress.setColor = (color) => {
+            const style = document.createElement('style')
+            style.textContent = `
+            #nprogress .bar {
+              background: ${color} !important;
+            }
+            `
+            document.body.appendChild(style)
+          }
+      // Start the route progress bar.
+      NProgress.setColor("Orange");
+      NProgress.start()
+    }
+    next()
+  })
+  
+  router.afterEach((to, from) => {
+    // Complete the animation of the route progress bar.
+    NProgress.done()
+  })
+  
 export default router;
