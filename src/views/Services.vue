@@ -57,6 +57,12 @@
       </div>
     </div>
   </section>
+  <div class=" bg-dark">
+    <div v-for="(item) in blogs" :key="item.id">
+      <div v-html="item.content.rendered">
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -65,15 +71,28 @@ import Cover from "../components/Cover";
 
 export default {
   name: "Services",
+  data() {
+    return {
+      blogs: [],
+    };
+  },
   components: {
     Service,
     Cover,
   },
+  methods: {
+    async getData() {
+      const res = await fetch("http://localhost/shantoorb/wp-json/wp/v2/posts");
+      const data = await res.json();
+      this.blogs = data;
+      console.log(data[0].content.rendered);
+    },
+  },
   mounted() {
-    console.log("mounted");
+    this.getData();
   },
-  created() {
-    console.log("created");
-  },
+  // created() {
+  //   console.log("created");
+  // },
 };
 </script>
