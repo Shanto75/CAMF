@@ -81,15 +81,20 @@ export default {
     Cover,
   },
   methods: {
-    async getData() {
-      const res = await fetch("http://localhost/shantoorb/wp-json/wp/v2/posts");
-      const data = await res.json();
-      this.blogs = data;
-      console.log(data[0].content.rendered);
-    },
+    // async getData() {
+    //   const res = await fetch("http://localhost/shantoorb/wp-json/wp/v2/posts");
+    //   const data = await res.json();
+    //   this.blogs = data;
+    //   console.log(data[0].content.rendered);
+    // },
+    getinfo(){
+      const globalVar = this.$myGlobalVariable;
+      console.log(this.$myGlobalVariable);
+    }
   },
   mounted() {
-    this.getData();
+    // this.getData();
+    this.getinfo();
   },
   // created() {
   //   console.log("created");

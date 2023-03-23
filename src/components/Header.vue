@@ -37,12 +37,17 @@
             <router-link
               class="nav-link scrollto"
               active-class="active"
-              to="/Portfolio"
+              to="/portfolio"
               >Portfolio</router-link
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link scrollto" href="#team">Team</a>
+            <router-link
+              class="nav-link scrollto"
+              active-class="active"
+              to="/blogs"
+              >Blogs</router-link
+            >
           </li>
           <li class="nav-item">
             <router-link

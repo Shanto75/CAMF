@@ -4,6 +4,7 @@ import Home from '../views/Home'
 import About from '../views/About'
 import Services from '../views/Services'
 import Portfolio from '../views/Portfolio'
+import Blogs from '../views/Blogs'
 import Contact from '../views/Contact'
 
 const routes = [
@@ -27,6 +28,11 @@ const routes = [
     path: '/portfolio',
     name: 'portfolio',
     component: Portfolio,
+  },
+  {
+    path: '/blogs',
+    name: 'blogs',
+    component: Blogs,
   },
   {
     path: '/contact',
