@@ -4,23 +4,53 @@
     <div class="container">
       <div v-if="loading">
         <div class="p-5">
-          <p class="d-flex flex-column  card-text placeholder-glow">
-            <span class="placeholder bg-primary" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-secondary" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-success" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-danger" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-warning" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-info" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-light" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
-            <span class="placeholder bg-dark" :class="['col-' + Math.floor(Math.random() * 6)]"></span>
+          <p class="d-flex flex-column gap-3 card-text placeholder-glow">
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
+            <span
+              class="placeholder bg-secondary rounded"
+              :class="['col-' + Math.floor(Math.random() * 6)]"
+            ></span>
           </p>
         </div>
       </div>
-      <div class="pt-5 px-2" v-for="item in blogs" :key="item.id">
-        <header class="section-header">
-          <h3>{{ item.title.rendered }}</h3>
-        </header>
-        <div v-html="item.content.rendered"></div>
+
+      <div class=" pt-4 d-flex flex-wrap">
+        <div class="p-2" v-for="item in blogs" :key="item.id">
+          <BlogCard
+            :key="item.id"
+            :img="item?._embedded?.['wp:featuredmedia']?.[0]?.source_url"
+            :date="item.date"
+            :title="item.title.rendered"
+            :details="item.content.rendered"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -28,6 +58,7 @@
 
 <script>
 import Cover from "../components/Cover";
+import BlogCard from "../components/BlogCard";
 
 export default {
   name: "Blogs",
@@ -39,14 +70,15 @@ export default {
   },
   components: {
     Cover,
+    BlogCard,
   },
   methods: {
     async getData() {
-      const res = await fetch(this.$apibaseurl + "/posts");
+      const res = await fetch(this.$apibaseurl + "/posts?_embed");
       const data = await res.json();
       this.blogs = data;
       this.loading = false;
-      //   console.log(data[0].content.rendered);
+        // console.log(data[0]._embedded['wp:featuredmedia']['0'].source_url);
     },
     // getinfo() {
     //   const globalVar = this.$apibaseurl;
